@@ -1,0 +1,7 @@
+.App{
+    background-image: url("../../../public/background-image.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+}
