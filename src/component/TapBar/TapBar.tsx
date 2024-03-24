@@ -7,33 +7,36 @@ import {FavoriteIcon} from "./icons/FavoriteIcon";
 
 export const TapBar = () => {
 
-    const [isHidden, setIsHidden] = useState(false);
     const [commentsCount, setCommentsCount] = useState(0);
     const [favoriteCount, setFavoriteCount] = useState(0);
-
+    const [isHidden, setIsHidden] = useState(false);
+    const [lastScrollPosition, setLastScrollPosition] = useState(0);
 
     useEffect(() => {
-        let lastScrollTop = 0;
-        let timeout: NodeJS.Timeout;
-
         const handleScroll = () => {
-            const currentScroll = window.pageYOffset;
-            if (currentScroll > 200 && currentScroll > lastScrollTop) {
+            const currentScrollPosition = window.pageYOffset;
+            if (currentScrollPosition > 200 && currentScrollPosition > lastScrollPosition) {
                 setIsHidden(true);
             } else {
                 setIsHidden(false);
             }
-            lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
-            clearTimeout(timeout);
-            timeout = setTimeout(() => setIsHidden(false), 1000);
+            setLastScrollPosition(currentScrollPosition);
+        };
+
+        const handleScrollEnd = () => {
+            setTimeout(() => {
+                setIsHidden(false);
+            }, 1000);
         };
 
         window.addEventListener('scroll', handleScroll);
+        window.addEventListener('scroll', handleScrollEnd);
+
         return () => {
             window.removeEventListener('scroll', handleScroll);
+            window.removeEventListener('scroll', handleScrollEnd);
         };
-    }, []);
-
+    }, [lastScrollPosition]);
     const handleBackToTop = () => {
         window.scrollTo({top: 0, behavior: 'smooth'});
     };

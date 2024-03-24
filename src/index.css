@@ -24,12 +24,10 @@ html {
 body {
   margin: 0 auto;
   max-width: 380px;
-
+  overflow-y: scroll;
+  height: 100vh;
 }
 
-a {
-  color: #F8F8F8;
-  text-decoration: none; /* Убираем подчёркивание */
-}
+
 
 
