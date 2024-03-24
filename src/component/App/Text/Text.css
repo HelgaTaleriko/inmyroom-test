@@ -1,0 +1,11 @@
+.text {
+    max-width: 380px;
+    color: white;
+    background: url("../../../../public/background-image.png") no-repeat fixed center;
+    padding: 20px 15px;
+}
+.text p{
+    font-size: 14px;
+    margin: 0;
+    text-shadow: 1px 3px 7px #000000;
+}

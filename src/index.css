@@ -2,7 +2,18 @@ html {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   background-color: #F8F8F8;
+  font-family: "Proxima Nova Regular";
 
+}
+
+@font-face {
+  font-family: 'Proxima Nova Regular';
+  src: url('./fonts/ProximaNova/ProximaNova-Regular.eot');
+  src: url('./fonts/ProximaNova/ProximaNova-Regular.eot?#iefix') format('embedded-opentype'),
+  url('./fonts/ProximaNova/ProximaNova-Regular.woff') format('woff'),
+  url('./fonts/ProximaNova/ProximaNova-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }
 
 *, *::after, *::before {
@@ -11,20 +22,13 @@ html {
 }
 
 body {
-  margin: 0;
-  width: 700px;
-
-}
-
-/*сбрасываем стили*/
-
-
-li {
-  list-style-type: none;
+  margin: 0 auto;
+  max-width: 380px;
 }
 
 a {
   color: #F8F8F8;
   text-decoration: none; /* Убираем подчёркивание */
-
 }
+
+
